@@ -2,9 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
-## Setup
+# Setting up Application 
 
-once we clone the repository run `npm install` on the 
+Clone the repository to local system and run `npm install` command from folder to where repository is cloned. Ensure that we have package.json where we are running this command
 
 ## Development server
 
