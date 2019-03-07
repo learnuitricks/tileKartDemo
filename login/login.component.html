@@ -1,0 +1,27 @@
+<div class="container">
+  <form name="login" #loginForm="ngForm">
+  <div class="form-group">
+    <label for="userName">User Name</label>
+    <input type="text" name="userName" id="userName" class="form-control" [(ngModel)]="userName"  required #uName="ngModel"  minlength="4">
+  </div>
+  <div  [hidden]="(uName.valid || uName.errors.required)" class="alert alert-danger">
+    user name is required
+  </div>
+  <div  [hidden]="(uName.valid || uName.errors.pattern)" class="alert alert-danger">
+      user name does not match with the pattern
+    </div>
+  <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" class="form-control" [(ngModel)]="password" #pwd="ngModel" required>
+    </div>
+    <div  [hidden]="pwd.valid || pwd.pristine " class="alert alert-danger">
+      pass word is required
+    </div>
+    <div>
+      <button class="btn btn-primary" (click)="login()" [disabled]="!loginForm.valid">Login</button>
+    </div>
+  </form>
+<div>modified user name is {{userName}}</div>
+<div>modified user name is {{password}}</div>
+<div>template refence variable : {{uName.valid}}</div>
+</div>

@@ -1,0 +1,8 @@
+<td><img [src]="imagePath + tile.image" alt=""></td>
+<!-- <td>{{tile.name | uppercase}}</td> -->
+<td><a [routerLink]="['/tiles',tile.Id]">{{tile.name | uppercase}}</a></td>
+<td>{{tile.model}}</td>
+<td>{{tile.price | currency}}</td>
+<td>{{tile.status |status }}</td>
+<!-- <td>{{tile.rating}}</td> -->
+<td><app-star [rating]='tile.rating' (ratingClicked)="updateRatingToDb(message)" ></app-star></td>

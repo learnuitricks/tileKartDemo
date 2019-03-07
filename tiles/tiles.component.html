@@ -1,0 +1,53 @@
+
+<div class="panel panel-default">
+  <div class="panel-heading"></div>
+  <div class="panel-body">
+    
+      <div class="container">
+          <form class="form-inline">
+              <div class="form-group">
+                <label for="selectBox">Filter By : </label>
+                <select [(ngModel)]="selectedFilter" id="selectBox" name="filterBox">
+                  <option *ngFor="let filter of filterOptions">{{filter}}</option>
+                </select>
+              </div>
+              <div class="form-group">
+                  <label for="fiterText">Filter Text : </label>
+                  <input type="text" [(ngModel)]="filterText" name="filterText" id="fiterText" class="form-control" />
+              </div>
+              <div class="form-group">
+                  <button class="btn btn-primary" (click)="filter()">Apply Filter</button>
+                </div>
+      
+    </form>
+    
+        </div>
+
+</div>
+</div>
+
+<table *ngIf="tiles && tiles.length>0" class="table" >
+  <thead>
+    <th>image</th>
+    <th>name</th>
+    <th>model</th>
+    <th>price</th>
+    <th>status</th>
+    <th>rating</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let tile of tiles" app-tile [tile]= 'tile'>
+     
+      <!-- tile component, move the logic to display the tile details -->
+      <!-- <app-tile [tile]='tile'></app-tile>   -->
+ <!-- <td><img [src]="imagePath + tile.image" alt=""></td> 
+       <td>{{tile.name | uppercase}}</td>
+<td>{{tile.model}}</td>
+<td>{{tile.price | currency}}</td>
+<td>{{tile.status |status }}</td> -->
+
+    </tr>
+
+    
+  </tbody>
+</table>

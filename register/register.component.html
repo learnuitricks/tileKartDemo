@@ -1,0 +1,75 @@
+<div class="container" >
+  <form name="register" [formGroup]="registerForm" (ngSubmit) ="register()">
+  <div class="form-group" >
+    <label for="userName">User Name</label>
+    <input type="text" name="userName" id="userName" class="form-control" formControlName="userName" required>
+  </div>
+
+  <div  *ngIf="registerForm.get('userName').status=='INVALID'" class="alert alert-danger">
+    user name is required
+  </div>
+  <div class="form-group" >
+
+    <label for="userName">Email</label>
+    
+    <input type="text" class="form-control" formControlName="email" >
+    
+    </div>
+    
+    <div class="form-group" >
+    
+    <label for="userName">Phone Number</label>
+    
+    <input type="text" class="form-control" formControlName="phoneNumber">
+    
+   
+    <div formGroupName="billingAddress">
+
+      <h3>Billing Address</h3>
+      
+      <label>
+      
+      Door Number
+      
+      <input type="text" formControlName="doorNumber">
+      
+      </label>
+      
+      <label>
+      
+      City:
+      
+      <input type="text" formControlName="city">
+      
+      </label>
+      
+      <label>
+      
+      Pin Code:
+      
+      <input type="text" formControlName="zip" [pattern]='zipcodePattern'>
+      
+      </label>
+      
+      <div   *ngIf="registerForm.get('billingAddress').get('zip').status=='INVALID'"  class="alert alert-danger">
+      zip code entered is not valid and it should be 6 digit number
+      </div>
+      </div>
+    </div>
+    <div>
+      <button class="btn btn-primary" (click)="register()" [disabled]='!registerForm.valid' >Register</button>
+    </div>
+      ​
+    <div>
+      {{registerForm.value | json}}
+    </div>
+
+    <div>
+     form status : {{registerForm.status }}
+    </div>
+
+    <div *ngIf="saveMessage!=''" class="alert alert-success">
+    {{saveMessage}}
+    </div>
+  </form>
+ </div>
